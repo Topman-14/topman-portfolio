@@ -2,8 +2,9 @@
     --bg-color: #fff;
     --font-color: #3d3d3d;
     --nav-color: #025346;
-    --secondary-color: #ee9002;
+    --secondary-color: #f17602;
     --heading-color: #38b307;
+    --mobile-nav-bg: rgb(11, 219, 219);
     scroll-behavior: smooth;
 }
 [data-theme="dark"] {
@@ -12,15 +13,16 @@
     --nav-color: #025346;
     --secondary-color: #64ffda;
     --heading-color: #818cab;
+    --mobile-nav-bg: rgb(11, 219, 219);
+    scroll-behavior: smooth;
 }
 ::-webkit-scrollbar {
-    background: #ffffff00;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 4px;
 }
 ::-webkit-scrollbar-thumb{
     background: rgb(0, 255, 191);
-    border-radius: 50px;
+    border-radius: 6px;
 }
 body{
     background: var(--bg-color);
@@ -40,7 +42,9 @@ body{
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.452);
     opacity: 0.9;
     backdrop-filter: blur(9px);
+    z-index: 2;
 }
+
 input[type="checkbox"]{
     -webkit-appearance: none;
     visibility: hidden;
@@ -85,15 +89,64 @@ input[type="checkbox"]:checked ~ .check{
     border-radius: 50%;
     transform: 0.5s;
 }
+.mobile-menu{
+    background: var(--secondary-color);
+    position: fixed;
+    right:0px;
+    top:0px;
+    width:60vh;
+    height:0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 15px black;
+    overflow: hidden;
+    transition: 0.8s;
+    opacity: 0;
+}
+.menuup{
+    background: var(--secondary-color);
+    position: fixed;
+    right:0px;
+    top:0px;
+    width:60vh;
+    height:100vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 15px black;
+    overflow: hidden;
+    opacity: 1;
+}
+.mobile-menu>ul{
+    list-style-type: none;
+    text-align: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.mm-link{
+    color: white;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+}
+.mm-link:hover{
+    color: #fff;
+}
 .container {
+    position: relative;
     cursor: pointer;
     display: flex;
     width:70px;
-    padding-right: 30px;
+    margin-right: 30px;
     display: none;
   }
   svg {
     transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    height: 70px;
   }
   .active svg {
     transform: rotate(90deg);
@@ -145,10 +198,15 @@ input[type="checkbox"]:checked ~ .check{
     margin: 0px;
     display: flex;
     list-style-type: none;
-    width:45%;
-    justify-content: space-evenly;
+    width:500px;
+    justify-content: space-between;
     align-items: center;
     justify-self:right;
+}
+.nav-right{
+    display: flex;
+    align-items:center;
+    gap:35px;
 }
 #topman-logo{
     height:10px;
@@ -163,7 +221,7 @@ li>a{
 li>a>img{
     height: 30px;
     vertical-align: middle;
-    padding:10px 15px 15px 10px;
+    padding:0px 5px 7px 0;
 }
 a:hover{
    color: rgb(0, 140, 255);
@@ -173,9 +231,6 @@ a:hover{
     width:100%;
     height:0.8vh;
     background: linear-gradient(90deg, cyan, rgb(21, 255, 0), rgb(255, 230, 0)); 
-}
-.toggle-dark{
-    margin: 0px;
 }
 #welcome-section{
     padding: 0px 30px;
@@ -215,7 +270,7 @@ a:hover{
     margin: 10px;
     min-height: 330px;
     min-width: 330px;
-    background: linear-gradient(90deg, cyan, rgb(21, 255, 0), rgb(255, 230, 0));
+    background: linear-gradient(0deg, cyan, rgb(21, 255, 0), rgb(255, 230, 0), rgb(255, 136, 0));
     display: flex;
     align-items: center;
     border-radius: 50%;
@@ -237,9 +292,14 @@ a:hover{
 @keyframes bdr-reverse {
     100%{rotate: -360deg;}
 }
+#projects{
+    height:100vh;
+    background: linear-gradient(90deg, cyan, rgb(21, 255, 0), rgb(255, 230, 0)); 
+}
 @media (max-width:800px) {
     #welcome-section{
         flex-direction: column;
+        align-items: center;
     }
     .hero--text{
         padding-top:10vh;  
@@ -255,5 +315,8 @@ a:hover{
     }
     .container{
         display:inherit;
+    }
+    .check{
+        margin-right:-10px;
     }
 }
