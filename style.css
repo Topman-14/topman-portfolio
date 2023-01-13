@@ -2,18 +2,20 @@
     --bg-color: #fff;
     --font-color: #3d3d3d;
     --nav-color: #025346;
+    --mobile-nav-color: #ffffff;
     --secondary-color: #f17602;
     --heading-color: #38b307;
-    --mobile-nav-bg: rgb(11, 219, 219);
+    --mobile-nav-bg: rgb(252, 122, 0);
     scroll-behavior: smooth;
 }
-[data-theme="dark"] {
+.darkmode {
     --bg-color: #020c1b;
     --font-color: #9A97F3;
-    --nav-color: #025346;
+    --nav-color: #1cd4b6;
+    --mobile-nav-color: #b4f8ed;
     --secondary-color: #64ffda;
     --heading-color: #818cab;
-    --mobile-nav-bg: rgb(11, 219, 219);
+    --mobile-nav-bg: #071c3a;
     scroll-behavior: smooth;
 }
 ::-webkit-scrollbar {
@@ -30,6 +32,7 @@ body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
     font-weight: 600;
+    transition: 0.2s;
 }
 #navbar{
     position: sticky;
@@ -90,7 +93,7 @@ input[type="checkbox"]:checked ~ .check{
     transform: 0.5s;
 }
 .mobile-menu{
-    background: var(--secondary-color);
+    background: var(--mobile-nav-bg);
     position: fixed;
     right:0px;
     top:0px;
@@ -102,11 +105,11 @@ input[type="checkbox"]:checked ~ .check{
     align-items: center;
     box-shadow: 1px 1px 15px black;
     overflow: hidden;
-    transition: 0.8s;
+    transition: 0.4s;
     opacity: 0;
 }
 .menuup{
-    background: var(--secondary-color);
+    background: var(--mobile-nav-bg);
     position: fixed;
     right:0px;
     top:0px;
@@ -129,7 +132,7 @@ input[type="checkbox"]:checked ~ .check{
     justify-content: space-evenly;
 }
 .mm-link{
-    color: white;
+    color: var(--mobile-nav-color);
     font-size: 1.3em;
     letter-spacing: 2px;
 }
@@ -270,7 +273,12 @@ a:hover{
 }
 .social-icons{
     height: 50px;
+    transition: 0.2s;
 }
+.social-icons:hover{
+    scale: 1.1;
+}
+
 #pic-container{
     min-height: 400px; 
     margin: 30px;  
