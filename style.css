@@ -40,7 +40,7 @@ body{
     height:60px;
     align-items: center;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.452);
-    opacity: 0.9;
+    opacity: 0.7;
     backdrop-filter: blur(9px);
     z-index: 2;
 }
@@ -232,7 +232,7 @@ a:hover{
     height:0.8vh;
     background: linear-gradient(90deg, cyan, rgb(21, 255, 0), rgb(255, 230, 0)); 
 }
-#welcome-section{
+#hero{
     padding: 0px 30px;
     height:89.5vh;
     display: flex;
@@ -250,7 +250,6 @@ a:hover{
 }
 .hero--text{
     padding:3vh;
-    
 }
 .hero-text-small{
     font-size: 1.2em;
@@ -261,6 +260,16 @@ a:hover{
     font-size: 4.8em;
     margin-block: 0px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.712);
+}
+#socials{
+    display: flex;
+    height:70px;
+    justify-content: space-between;
+    margin-top: 40px;
+    width:50%;
+}
+.social-icons{
+    height: 50px;
 }
 #pic-container{
     min-height: 400px; 
@@ -297,9 +306,10 @@ a:hover{
     background: linear-gradient(90deg, cyan, rgb(21, 255, 0), rgb(255, 230, 0)); 
 }
 @media (max-width:800px) {
-    #welcome-section{
+    #hero{
         flex-direction: column;
         align-items: center;
+        height:fit-content;
     }
     .hero--text{
         padding-top:10vh;  
